@@ -17,7 +17,10 @@
     "url": "https://github.com/Logan4646/backend-project-lvl1/issues"
   },
   "bin": {
-	    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js"
   },
-  "homepage": "https://github.com/Logan4646/backend-project-lvl1#readme"
+  "homepage": "https://github.com/Logan4646/backend-project-lvl1#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
