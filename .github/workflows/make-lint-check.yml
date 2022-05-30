@@ -6,3 +6,4 @@ jobs:
                 steps:
                         - uses: actions/checkout@v2
                         - run: make lint
+                        - run: npm install --save-dev eslint-config-airbnb-base
