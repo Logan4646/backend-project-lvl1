@@ -16,7 +16,6 @@ const calc = () => {
     const CurrentSign = signs[randomfunc(3)];
     console.log('Question:', Random1, CurrentSign, Random2);
     const UserAnswer = Number(readlineSync.question('Your answer: '));
-    console.log(UserAnswer);
     let CalcResult = 0;
     if (CurrentSign === '+') {
       CalcResult = Random1 + Random2;
@@ -29,7 +28,7 @@ const calc = () => {
     }
     if (CalcResult === UserAnswer) {
       console.log('Correct!');
-    } else return console.log(`"${UserAnswer}" is wrong answer ;(. Correct answer was ${CalcResult}. \n Let's try again, ${User}!`);
+    } else return console.log(`"${UserAnswer}" is wrong answer ;(. Correct answer was "${CalcResult}". \n Let's try again, ${User}!`);
   }
   return console.log(`Congratulations, ${User}!`);
 };
