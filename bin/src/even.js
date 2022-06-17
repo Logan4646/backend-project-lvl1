@@ -9,7 +9,8 @@ const even = () => {
   console.log(`Hello, ${User}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let counter = 0; counter < 3; counter += 1) {
-    const Random = randomfunc(100);
+    const max = 100;
+    const Random = randomfunc(max);
     console.log('Question:', Random);
     const UserAnswer = readlineSync.question('Your answer: ');
     if (Random % 2 === 0) {
