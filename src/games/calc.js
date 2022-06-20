@@ -1,4 +1,4 @@
-import { name, randomfunction, Answer } from '../src/index.js';
+import { name, randomfunction, Answer } from '../index.js';
 
 const calc = () => {
   const Username = name();
