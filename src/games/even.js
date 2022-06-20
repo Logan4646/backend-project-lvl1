@@ -9,16 +9,16 @@ const even = () => {
     const Random = randomfunction(max);
     console.log('Question:', Random);
     const UserAnswer = Answer();
+    let Result;
     if (Random % 2 === 0) {
-      if (UserAnswer === 'yes') {
-        console.log('Correct!');
-      } else return console.log(`"${UserAnswer}" is wrong answer ;(. Correct answer was yes. \n Let's try again, ${Username}!`);
+      Result = 'yes';
     }
     if (Random % 2 === 1) {
-      if (UserAnswer === 'no') {
-        console.log('Correct!');
-      } else return console.log(`"${UserAnswer}" is wrong answer ;(. Correct answer was no. \n Let's try again, ${Username}!`);
+      Result = 'no';
     }
+    if (Result === UserAnswer) {
+      console.log('Correct!');
+    } else return console.log(`"${UserAnswer}" is wrong answer ;(. Correct answer was "${Result}". \n Let's try again, ${Username}!`);
   }
   return console.log(`Congratulations, ${Username}!`);
 };
