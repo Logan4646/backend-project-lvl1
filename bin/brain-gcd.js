@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import gcd from '../src/games/gcd.js';
+import { GameCode, Description } from '../src/games/gcd.js';
+import CommonFunction from '../src/index.js';
 
-gcd();
+CommonFunction(Description, GameCode);

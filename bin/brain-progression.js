@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import progression from '../src/games/progression.js';
+import { GameCode, Description } from '../src/games/progression.js';
+import CommonFunction from '../src/index.js';
 
-progression();
+CommonFunction(Description, GameCode);

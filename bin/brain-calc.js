@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import calc from '../src/games/calc.js';
+import { GameCode, Description } from '../src/games/calc.js';
+import CommonFunction from '../src/index.js';
 
-calc();
+CommonFunction(Description, GameCode);
