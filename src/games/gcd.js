@@ -1,32 +1,34 @@
-import readlineSync from 'readline-sync';
+import commonFunction from '../index.js';
 
-export const Description = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
-export const GameCode = () => {
-  const randomfunction = (maximum) => Math.floor(Math.random() * maximum);
+const gameCode = () => {
+  const randomFunction = (maximum) => Math.floor(Math.random() * maximum);
   const max = 50;
-  const AdditionalCondition = 1;
-  let Random1 = randomfunction(max) + AdditionalCondition;
-  let Random2 = randomfunction(max) + AdditionalCondition;
-  let TemporaryVar;
-  if (Random1 > Random2) {
-    TemporaryVar = Random2;
-    Random2 = Random1;
-    Random1 = TemporaryVar;
+  const additionalCondition = 1;
+  let random1 = randomFunction(max) + additionalCondition;
+  let random2 = randomFunction(max) + additionalCondition;
+  let temporaryVar;
+  if (random1 > random2) {
+    temporaryVar = random2;
+    random2 = random1;
+    random1 = temporaryVar;
   }
-  console.log('Question:', Random1, Random2);
-  const UserAnswer = Number(readlineSync.question('Your answer: '));
-  let Result;
-  if (Random2 % Random1 === 0) {
-    Result = Random1;
+  const questionMassiv = [random1, random2];
+  const question = questionMassiv.join(' ');
+  let calcResult;
+  if (random2 % random1 === 0) {
+    calcResult = random1;
   }
-  if (Random2 % Random1 !== 0) {
-    Result = Random2 % Random1;
-    while (Random1 % Result !== 0) {
-      TemporaryVar = Result;
-      Result = Random1 % TemporaryVar;
-      Random1 = TemporaryVar;
+  if (random2 % random1 !== 0) {
+    calcResult = random2 % random1;
+    while (random1 % calcResult !== 0) {
+      temporaryVar = calcResult;
+      calcResult = random1 % temporaryVar;
+      random1 = temporaryVar;
     }
   }
-  return [UserAnswer, Result];
+  const result = String(calcResult);
+  return [result, question];
 };
+export default () => commonFunction(description, gameCode);

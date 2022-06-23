@@ -1,25 +1,28 @@
-import readlineSync from 'readline-sync';
+import commonFunction from '../index.js';
 
-export const Description = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
-export const GameCode = () => {
-  const randomfunction = (maximum) => Math.floor(Math.random() * maximum);
-  const max = 10;
-  const Random1 = randomfunction(max);
-  const Random2 = randomfunction(max);
+const gameCode = () => {
+  const randomFunction = (maximum) => Math.floor(Math.random() * maximum);
+  const max = 20;
+  const random1 = randomFunction(max);
+  const random2 = randomFunction(max);
   const signs = ['+', '-', '*'];
-  const CurrentSign = signs[randomfunction(3)];
-  console.log('Question:', Random1, CurrentSign, Random2);
-  const UserAnswer = Number(readlineSync.question('Your answer: '));
-  let CalcResult;
-  if (CurrentSign === '+') {
-    CalcResult = Random1 + Random2;
+  const currentSign = signs[randomFunction(3)];
+  const questionMassiv = [random1, currentSign, random2];
+  const question = questionMassiv.join(' ');
+  let calcResult;
+  if (currentSign === '+') {
+    calcResult = random1 + random2;
   }
-  if (CurrentSign === '-') {
-    CalcResult = Random1 - Random2;
+  if (currentSign === '-') {
+    calcResult = random1 - random2;
   }
-  if (CurrentSign === '*') {
-    CalcResult = Random1 * Random2;
+  if (currentSign === '*') {
+    calcResult = random1 * random2;
   }
-  return [UserAnswer, CalcResult];
+  const result = String(calcResult);
+  return [result, question];
 };
+
+export default () => commonFunction(description, gameCode);

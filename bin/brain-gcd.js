@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { GameCode, Description } from '../src/games/gcd.js';
-import CommonFunction from '../src/index.js';
+import brainGcd from '../src/games/gcd.js';
 
-CommonFunction(Description, GameCode);
+brainGcd();

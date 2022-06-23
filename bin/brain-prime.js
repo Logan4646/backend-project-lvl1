@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { GameCode, Description } from '../src/games/prime.js';
-import CommonFunction from '../src/index.js';
+import brainPrime from '../src/games/prime.js';
 
-CommonFunction(Description, GameCode);
+brainPrime();

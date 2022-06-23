@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { GameCode, Description } from '../src/games/progression.js';
-import CommonFunction from '../src/index.js';
+import brainProgression from '../src/games/progression.js';
 
-CommonFunction(Description, GameCode);
+brainProgression();

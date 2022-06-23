@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { GameCode, Description } from '../src/games/even.js';
-import CommonFunction from '../src/index.js';
+import brainEven from '../src/games/even.js';
 
-CommonFunction(Description, GameCode);
+brainEven();

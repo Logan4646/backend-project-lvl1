@@ -1,26 +1,26 @@
-import readlineSync from 'readline-sync';
+import commonFunction from '../index.js';
 
-export const Description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-export const GameCode = () => {
-  const randomfunction = (maximum) => Math.floor(Math.random() * maximum);
+const gameCode = () => {
+  const randomFunction = (maximum) => Math.floor(Math.random() * maximum);
   const max = 50;
-  const AdditionalCondition = 2;
-  const Random = randomfunction(max) + AdditionalCondition;
-  let PrimeDigit = Random;
-  for (let i = 2; i < Random - 1; i += 1) {
-    if (Random % i === 0 && Random !== 2) {
-      PrimeDigit = 0;
+  const additionalCondition = 2;
+  const random = randomFunction(max) + additionalCondition;
+  let primeDigit = random;
+  for (let i = 2; i < random - 1; i += 1) {
+    if (random % i === 0 && random !== 2) {
+      primeDigit = 0;
     }
   }
-  console.log('Question:', Random);
-  const UserAnswer = readlineSync.question('Your answer: ');
-  let Result;
-  if (PrimeDigit === Random) {
-    Result = 'yes';
+  const question = random;
+  let result;
+  if (primeDigit === random) {
+    result = 'yes';
   }
-  if (PrimeDigit === 0) {
-    Result = 'no';
+  if (primeDigit === 0) {
+    result = 'no';
   }
-  return [UserAnswer, Result];
+  return [result, question];
 };
+export default () => commonFunction(description, gameCode);
