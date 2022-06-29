@@ -15,6 +15,8 @@ const getCalcResult = (random1, random2, currentSign) => {
     case '*':
       calcResult = random1 * random2;
       break;
+    default:
+      break;
   }
   return calcResult;
 };

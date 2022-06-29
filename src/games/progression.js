@@ -22,7 +22,7 @@ const getGameCode = () => {
   const min = 0;
   const random1 = getRandomFunction(min, maxNumbers1);
   const random2 = getRandomFunction(min, maxNumbers2);
-  const array = getProgression(random1, random2)
+  const array = getProgression(random1, random2);
   const questionElement = getRandomFunction(min, array.length - 1);
   array[questionElement] = '..';
   const question = array.join(' ');

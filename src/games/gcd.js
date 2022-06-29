@@ -6,15 +6,16 @@ const description = 'Find the greatest common divisor of given numbers.';
 const getGcdResult = (random1, random2) => {
   let calcResult;
   let temporaryVar2;
-  if (random2 % random1 === 0) {
-    calcResult = random1;
+  let calcVar = random1;
+  if (random2 % calcVar === 0) {
+    calcResult = calcVar;
   }
-  if (random2 % random1 !== 0) {
-    calcResult = random2 % random1;
-    while (random1 % calcResult !== 0) {
+  if (random2 % calcVar !== 0) {
+    calcResult = random2 % calcVar;
+    while (calcVar % calcResult !== 0) {
       temporaryVar2 = calcResult;
-      calcResult = random1 % temporaryVar2;
-      random1 = temporaryVar2;
+      calcResult = calcVar % temporaryVar2;
+      calcVar = temporaryVar2;
     }
   }
   return calcResult;
