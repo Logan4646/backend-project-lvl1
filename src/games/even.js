@@ -1,19 +1,20 @@
-import commonFunction from '../index.js';
+import getCommonFunction from '../index.js';
+import getRandomFunction from '../random-function.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const gameCode = () => {
-  const randomFunction = (maximum) => Math.floor(Math.random() * maximum);
+const isEven = (random) => (random % 2 === 0);
+const checkEven = (random) => {
+  const result = isEven(random) ? 'yes' : 'no';
+  return result;
+};
+
+const getGameCode = () => {
   const max = 100;
-  const random = randomFunction(max);
+  const min = 0;
+  const random = getRandomFunction(min, max);
   const question = random;
-  let result;
-  if (random % 2 === 0) {
-    result = 'yes';
-  }
-  if (random % 2 === 1) {
-    result = 'no';
-  }
+  const result = checkEven(random);
   return [result, question];
 };
-export default () => commonFunction(description, gameCode);
+export default () => getCommonFunction(description, getGameCode);

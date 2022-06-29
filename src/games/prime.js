@@ -1,26 +1,31 @@
-import commonFunction from '../index.js';
+import getCommonFunction from '../index.js';
+import getRandomFunction from '../random-function.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const gameCode = () => {
-  const randomFunction = (maximum) => Math.floor(Math.random() * maximum);
-  const max = 50;
-  const additionalCondition = 2;
-  const random = randomFunction(max) + additionalCondition;
+const getPrimeResult = (random) => {
   let primeDigit = random;
+  let result;
   for (let i = 2; i < random - 1; i += 1) {
     if (random % i === 0 && random !== 2) {
       primeDigit = 0;
     }
   }
-  const question = random;
-  let result;
   if (primeDigit === random) {
     result = 'yes';
   }
   if (primeDigit === 0) {
     result = 'no';
   }
+  return result;
+};
+
+const getGameCode = () => {
+  const max = 50;
+  const min = 2;
+  const random = getRandomFunction(min, max);
+  const question = random;
+  const result = getPrimeResult(random);
   return [result, question];
 };
-export default () => commonFunction(description, gameCode);
+export default () => getCommonFunction(description, getGameCode);

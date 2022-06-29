@@ -1,28 +1,35 @@
-import commonFunction from '../index.js';
+import getCommonFunction from '../index.js';
+import getRandomFunction from '../random-function.js';
 
 const description = 'What is the result of the expression?';
 
-const gameCode = () => {
-  const randomFunction = (maximum) => Math.floor(Math.random() * maximum);
-  const max = 20;
-  const random1 = randomFunction(max);
-  const random2 = randomFunction(max);
-  const signs = ['+', '-', '*'];
-  const currentSign = signs[randomFunction(3)];
-  const questionMassiv = [random1, currentSign, random2];
-  const question = questionMassiv.join(' ');
+const getCalcResult = (random1, random2, currentSign) => {
   let calcResult;
-  if (currentSign === '+') {
-    calcResult = random1 + random2;
+  switch (currentSign) {
+    case '+':
+      calcResult = random1 + random2;
+      break;
+    case '-':
+      calcResult = random1 - random2;
+      break;
+    case '*':
+      calcResult = random1 * random2;
+      break;
   }
-  if (currentSign === '-') {
-    calcResult = random1 - random2;
-  }
-  if (currentSign === '*') {
-    calcResult = random1 * random2;
-  }
-  const result = String(calcResult);
+  return calcResult;
+};
+
+const getGameCode = () => {
+  const max = 20;
+  const min = 0;
+  const random1 = getRandomFunction(min, max);
+  const random2 = getRandomFunction(min, max);
+  const signs = ['+', '-', '*'];
+  const signNumber = 3;
+  const currentSign = signs[getRandomFunction(min, signNumber)];
+  const question = `${random1} ${currentSign} ${random2}`;
+  const result = String(getCalcResult(random1, random2, currentSign));
   return [result, question];
 };
 
-export default () => commonFunction(description, gameCode);
+export default () => getCommonFunction(description, getGameCode);

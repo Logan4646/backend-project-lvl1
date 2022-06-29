@@ -1,21 +1,31 @@
-import commonFunction from '../index.js';
+import getCommonFunction from '../index.js';
+import getRandomFunction from '../random-function.js';
 
 const description = 'What number is missing in the progression?';
 
-const gameCode = () => {
-  const randomFunction = (maximum) => Math.floor(Math.random() * maximum);
-  const random1 = randomFunction(30);
-  const random2 = randomFunction(10);
+const getProgression = (random1, random2) => {
   let nextMassElem = random1 + random2;
-  const massiv = [random1];
-  const massivLimit = randomFunction(5) + 5;
-  for (let counter2 = 0; counter2 < massivLimit; counter2 += 1) {
-    massiv.push(nextMassElem);
+  const array = [random1];
+  const minRows = 5;
+  const maxRows = 10;
+  const arrayLimits = getRandomFunction(minRows, maxRows);
+  for (let counter2 = 0; counter2 < arrayLimits; counter2 += 1) {
+    array.push(nextMassElem);
     nextMassElem += random2;
   }
-  const questionElement = randomFunction(massivLimit - 1);
-  massiv[questionElement] = '..';
-  const question = massiv.join(' ');
+  return array;
+};
+
+const getGameCode = () => {
+  const maxNumbers1 = 30;
+  const maxNumbers2 = 10;
+  const min = 0;
+  const random1 = getRandomFunction(min, maxNumbers1);
+  const random2 = getRandomFunction(min, maxNumbers2);
+  const array = getProgression(random1, random2)
+  const questionElement = getRandomFunction(min, array.length - 1);
+  array[questionElement] = '..';
+  const question = array.join(' ');
   let result;
   if (questionElement === 0) {
     result = random1;
@@ -24,9 +34,9 @@ const gameCode = () => {
     result = random1 + random2 * 5;
   }
   if (questionElement !== 5 && questionElement !== 0) {
-    result = (massiv[questionElement + 1] + massiv[questionElement - 1]) / 2;
+    result = (array[questionElement + 1] + array[questionElement - 1]) / 2;
   }
   const calcResult = String(result);
   return [calcResult, question];
 };
-export default () => commonFunction(description, gameCode);
+export default () => getCommonFunction(description, getGameCode);
