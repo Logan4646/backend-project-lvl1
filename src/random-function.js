@@ -1,2 +1,2 @@
-const getRandomFunction = (minimum, maximum) => minimum + Math.floor(Math.random() * maximum);
+const getRandomFunction = (minimum, maximum) => minimum + Math.ceil(Math.random() * maximum);
 export default getRandomFunction;

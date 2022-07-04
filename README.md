@@ -1,11 +1,16 @@
-This is the first project Brain-games with simple mathematics calculations. For each game you will have a task and 3 questions to pass the game. Good luck!
+Brain Games project.
 
-To start a game need to choose, print text below and push Enter:
-make brain-even
-make brain-calc
-make brain-progression
-make brain-prime
-make brain-gcd
+This is the first project with simple mathematics calculations. For each game you will have a task and 3 questions to pass the game. Good luck!
+
+To start a game:
+1. Clone this project 
+2. Install all dependences
+3. Then you can start any game up to your choice:
+make brain-even - check if the number is even.
+make brain-calc - calculate result of the expression.
+make brain-progression - find the greatest common divisor of given numbers.
+make brain-prime - check if given number is prime.
+make brain-gcd - find missing number in the progression.
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Logan4646/backend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/Logan4646/backend-project-lvl1/actions)

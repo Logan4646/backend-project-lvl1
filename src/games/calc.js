@@ -3,22 +3,17 @@ import getRandomFunction from '../random-function.js';
 
 const description = 'What is the result of the expression?';
 
-const getCalcResult = (random1, random2, currentSign) => {
-  let calcResult;
-  switch (currentSign) {
+const getCalcResult = (number1, number2, operation) => {
+  switch (operation) {
     case '+':
-      calcResult = random1 + random2;
-      break;
+      return number1 + number2;
     case '-':
-      calcResult = random1 - random2;
-      break;
+      return number1 - number2;
     case '*':
-      calcResult = random1 * random2;
-      break;
+      return number1 * number2;
     default:
       break;
   }
-  return calcResult;
 };
 
 const getGameCode = () => {
@@ -27,8 +22,7 @@ const getGameCode = () => {
   const random1 = getRandomFunction(min, max);
   const random2 = getRandomFunction(min, max);
   const signs = ['+', '-', '*'];
-  const signNumber = 3;
-  const currentSign = signs[getRandomFunction(min, signNumber)];
+  const currentSign = signs[getRandomFunction(min, 2)];
   const question = `${random1} ${currentSign} ${random2}`;
   const result = String(getCalcResult(random1, random2, currentSign));
   return [result, question];
