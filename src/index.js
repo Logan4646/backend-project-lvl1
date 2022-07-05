@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const getCommonFunction = (description, getGameCode) => {
+const run = (description, getGameCode) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -19,4 +19,4 @@ const getCommonFunction = (description, getGameCode) => {
   }
   console.log(`Congratulations, ${userName}!`);
 };
-export default getCommonFunction;
+export default run;
